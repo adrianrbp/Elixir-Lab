@@ -1,0 +1,36 @@
+{
+    "name": "Elixir Lab",
+    "image": "elixir:slim",
+    "shutdownAction": "stopContainer",
+    "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
+    "mounts": [
+        "source=${localEnv:HOME}/.gitconfig,target=/root,type=bind"
+    ],
+    "postCreateCommand": "apt-get update && apt-get install -y ca-certificates",
+    "features": {
+        "ghcr.io/devcontainers/features/git:1": {}
+    },
+    "customizations": {
+        "vscode": {
+            "settings": {
+                "editor.formatOnSave": true,
+                "[elixir]": {
+                    "editor.defaultFormatter": "JakeBecker.elixir-ls"
+                },
+                "elixirLS.mixEnv": "dev",
+                "elixirLS.dialyzerEnabled": false
+            },
+            "extensions": [
+                "iliazeus.vscode-ansi",
+                "jakebecker.elixir-ls",
+                "florinpatrascu.vscode-elixir-snippets",
+                "waderyan.gitblame",
+                "eamodio.gitlens",
+                "IBM.output-colorizer",
+                "usernamehw.errorlens",
+                "hbenl.vscode-test-explorer",
+                "pkief.material-icon-theme"
+            ]
+        }
+    }
+}
