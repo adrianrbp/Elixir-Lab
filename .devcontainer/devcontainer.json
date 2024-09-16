@@ -4,7 +4,9 @@
     "shutdownAction": "stopContainer",
     "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
     "mounts": [
-        "source=${localEnv:HOME}/.gitconfig,target=/root,type=bind"
+        "source=${localEnv:HOME}/.gitconfig,target=/root/.gitconfig,type=bind",
+        "source=${localEnv:HOME}/.bashrc,target=/root/.bashrc,type=bind",
+        "source=${localEnv:HOME}/.ssh,target=/root/.ssh,type=bind"
     ],
     "postCreateCommand": "apt-get update && apt-get install -y ca-certificates",
     "features": {
@@ -12,7 +14,9 @@
     },
     "customizations": {
         "vscode": {
+            // Set *default* container specific settings.json values on container create.
             "settings": {
+                // "terminal.integrated.defaultProfile.linux": "bash",
                 "editor.formatOnSave": true,
                 "[elixir]": {
                     "editor.defaultFormatter": "JakeBecker.elixir-ls"
@@ -29,6 +33,11 @@
                 "IBM.output-colorizer",
                 "usernamehw.errorlens",
                 "hbenl.vscode-test-explorer",
+                "pgourlain.erlang",
+                "yuce.erlang-otp",
+                "erlang-ls.erlang-ls",
+                "szTheory.erlang-formatter",
+                "decoda.erlang-symbols",
                 "pkief.material-icon-theme"
             ]
         }
